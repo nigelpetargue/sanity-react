@@ -1,3 +1,3 @@
 export function Footer() {
-  return <div>Footer component</div>;
+  return <div className="bg-red-500">Footer component</div>
 }

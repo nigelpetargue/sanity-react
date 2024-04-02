@@ -1,4 +1,4 @@
-import { client } from '../lib/sanity';
+import { client } from "../lib/sanity"
 
 export async function getPost() {
   const posts = await client.fetch(`*[_type == 'post'] {
@@ -18,6 +18,23 @@ export async function getPost() {
     categories[] -> {
       title
     }
-  } | order(publishedAt desc)`);
-  return posts;
+  } | order(publishedAt desc)`)
+
+  return posts
+}
+
+export async function getPostBySlug(slug) {
+  const post = await client.fetch(`*[slug.current === ${slug}] {
+    title,
+    body,
+    mainImage {
+      asset -> {
+        _id,
+        url
+      },
+      alt
+    }
+  }`)
+
+  return post
 }

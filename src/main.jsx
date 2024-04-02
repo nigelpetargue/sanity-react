@@ -1,35 +1,50 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import './index.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Home } from './pages/home.jsx';
-import { Blog } from './pages/blog.jsx';
-import { SinglePost } from './pages/post.jsx';
+import React from "react"
+import ReactDOM from "react-dom/client"
+import App from "./App.jsx"
+import "./index.css"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { Home } from "./pages/home.jsx"
+import { Blog } from "./pages/blog.jsx"
+import { SinglePost } from "./pages/post.jsx"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
     children: [
       {
-        path: '/',
+        path: "/",
         element: <Home />,
       },
       {
-        path: '/blog',
+        path: "/blog",
         element: <Blog />,
       },
       {
-        path: '/blog/:slug',
+        path: "/blog/:slug",
         element: <SinglePost />,
       },
     ],
   },
-]);
+])
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <ToastContainer
+      position="bottom-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="colored"
+      // transition: Bounce,
+    />
   </React.StrictMode>
-);
+)
