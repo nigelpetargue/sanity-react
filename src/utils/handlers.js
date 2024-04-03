@@ -1,3 +1,5 @@
+/** @format */
+
 import { client } from "../lib/sanity"
 
 export async function getPost() {
@@ -24,7 +26,7 @@ export async function getPost() {
 }
 
 export async function getPostBySlug(slug) {
-  const post = await client.fetch(`*[slug.current === ${slug}] {
+  const post = await client.fetch(`*[slug.current == "${slug}"] {
     title,
     body,
     mainImage {

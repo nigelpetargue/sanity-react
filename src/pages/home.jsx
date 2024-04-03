@@ -17,11 +17,9 @@ export function Home() {
     try {
       const response = await getPost()
       setPosts(response)
-    } 
-    catch (error) {
-      toast.warn(error.message)
-    } 
-    finally {
+    } catch (error) {
+      toast.warn(error)
+    } finally {
       setLoading(false)
     }
   }

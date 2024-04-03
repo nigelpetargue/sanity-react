@@ -1,10 +1,12 @@
+/** @format */
+
 import React from "react"
 import ReactDOM from "react-dom/client"
 import App from "./App.jsx"
 import "./index.css"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { Home } from "./pages/home.jsx"
-import { Blog } from "./pages/blog.jsx"
+import { Articles } from "./pages/articles.jsx"
 import { SinglePost } from "./pages/post.jsx"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
@@ -19,8 +21,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/blog",
-        element: <Blog />,
+        path: "/blogs",
+        element: <Articles />,
       },
       {
         path: "/blog/:slug",
